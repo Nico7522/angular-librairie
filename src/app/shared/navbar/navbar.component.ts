@@ -18,7 +18,7 @@ export class NavbarComponent implements OnInit {
   }
 
   connect(): void {
-    this._authService.connect()
+   
   }
 
   disconnect(): void {
