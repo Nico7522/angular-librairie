@@ -1,38 +1,66 @@
-nav {
-    display: flex;
-    flex-direction: column;
-    // justify-content: space-between;
-    min-height: 100%;
-    width: 15vw;
-    background-color: rgb(201, 139, 80);
-}
-ul {
-    margin-left: -50px;
-}
-li {
-    list-style: none;
-    margin:  1rem;
-    text-align: center;
-    background-color: rgb(238, 133, 12); 
+// nav {
+//     display: flex;
+//     flex-direction: column;
+//     // justify-content: space-between;
+//     min-height: 100%;
+//     width: 15vw;
+//     background-color: rgb(201, 139, 80);
+// }
+// ul {
+//     margin-left: -50px;
+// }
+// li {
+//     list-style: none;
+//     margin:  1rem;
+//     text-align: center;
+//     background-color: rgb(238, 133, 12); 
     
-}
-a {
-    width: 100%;
-    padding: 5px;
-    // background-color: rgb(238, 133, 12);
-    color: beige;
-    font-size: 2rem;
-}
-button {
-    margin: 0 auto;
-    width: 170px;
-    padding: 5px;
-    font-size: 1rem;
+// }
+// a {
+//     width: 100%;
+//     padding: 5px;
+//     // background-color: rgb(238, 133, 12);
+//     color: beige;
+//     font-size: 2rem;
+// }
+// button {
+//     margin: 0 auto;
+//     width: 170px;
+//     padding: 5px;
+//     font-size: 1rem;
 
   
-}
+// }
 
-h2 {
-    text-align: center;
-    font-size: 2rem;
-}
+// h2 {
+//     text-align: center;
+//     font-size: 2rem;
+// }
+
+.navbar {
+    background-color: #333; /* couleur de fond de la barre de navigation */
+    overflow: hidden; /* pour que les éléments dans la navbar ne dépassent pas */
+  }
+  
+  .navbar a {
+    float: left; /* pour aligner les éléments à gauche */
+    color: #f2f2f2; /* couleur du texte */
+    text-align: center; /* pour centrer le texte */
+    padding: 14px 16px; /* pour ajouter de l'espace autour du texte */
+    text-decoration: none; /* pour supprimer le soulignement du texte */
+  }
+  
+  .navbar a:hover {
+    background-color: #ddd; /* couleur de fond lorsque la souris survole l'élément */
+    color: black; /* couleur du texte lors du survol */
+  }
+  
+  .active {
+    background-color: #cfa416; /* couleur de fond pour l'élément actif */
+    color: white; /* couleur du texte pour l'élément actif */
+  }
+
+  #login, #logout {
+    float: right;
+  }
+  
