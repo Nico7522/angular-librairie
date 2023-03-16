@@ -1,4 +1,4 @@
-<nav *ngIf="isAdmin">
+<nav *ngIf="isAdmin && isConnected">
     <h2>Gestion</h2>
     <ul>
         <li><a routerLink="">Gestion books</a></li>
@@ -6,10 +6,11 @@
         <li><a routerLink=""> Gestion categories</a></li>
         <li><a routerLink=""> Gestion users</a></li>
         <li><a routerLink=""> Gestion orders</a></li>
-        <li><a routerLink=""> Log in</a></li>
+        <li *ngIf="!isConnected"><a routerLink="/login"> Log in</a></li>
+        <li *ngIf="isConnected === true"><a routerLink="/"> Log out</a></li>
 
     </ul>
-    <button type="submit" (click)=" connect()">Switch to member mode</button>
+    <button type="submit" (click)=" switch()">Switch to member mode</button>
 </nav>
 
 <nav *ngIf="!isAdmin">
@@ -18,11 +19,12 @@
         <li><a routerLink="">Books</a></li>
         <li><a routerLink="">Authors</a></li>
         <li><a routerLink="">Categories</a></li>
-        <li><a routerLink="">Users</a></li>
-        <li><a routerLink="">Orders</a></li>
-        <li><a routerLink="/login"> Log in</a></li>
+        <li><a routerLink="">My profile</a></li>
+        <li><a routerLink=""> My orders</a></li>
+        <li *ngIf="!isConnected"><a routerLink="/login"> Log in</a></li>
+        <li *ngIf="isConnected === true"><a routerLink="/"> Log out</a></li>
 
     </ul>
-    <button type="submit" (click)=" disconnect()">Switch to admin mode</button>
+    <button type="submit" >Switch to admin mode</button>
 
 </nav>

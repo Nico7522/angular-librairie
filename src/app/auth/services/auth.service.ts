@@ -9,16 +9,20 @@ import { Login } from '../models/login';
 })
 export class AuthService {
   private _Url : string = "http://localhost:8080/api/user/login";
+  isConnected: BehaviorSubject<boolean> = new BehaviorSubject(false);
   isAdmin: BehaviorSubject<boolean> = new BehaviorSubject(false);
-  isconnected: BehaviorSubject<boolean> = new BehaviorSubject(false);
 
   constructor(private _httpClient : HttpClient) {}
   connect(login: Login): Observable<AuthResult> {
     return this._httpClient.post<AuthResult>(this._Url, login)
-    // this.isAdmin.next(false);
+  
   }
 
-  disconnect() {
+  loged(): void {
+    this.isConnected.next(true);
+  }
+
+  admin(): void {
     this.isAdmin.next(true);
   }
 }
