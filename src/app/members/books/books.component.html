@@ -1,0 +1,7 @@
+<h2>List of books</h2>
+
+<div *ngFor="let book of listBooks">
+    <h3>Title : {{book.title}}</h3>
+    <h3>Price : {{book.price}}$</h3>
+    <h3 *ngFor="let n of book.authors">Authors : {{n.name}}</h3>
+</div>

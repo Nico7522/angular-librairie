@@ -52,8 +52,10 @@ export class LoginComponent {
           if (res.result.user.role === "Admin") {
             console.log('je suis un admin');
             this._authService.admin();
+            this._router.navigateByUrl('/gestion');
           } else {
             console.log('je suis un user');
+            this._router.navigateByUrl('/');
             
           }
         },
@@ -62,7 +64,7 @@ export class LoginComponent {
         },
 
         complete: () => {
-          this._router.navigateByUrl('/');
+         
         },
       });
     } else {

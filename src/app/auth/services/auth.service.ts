@@ -18,6 +18,11 @@ export class AuthService {
   
   }
 
+  disconnect(): void {
+    this.isConnected.next(false);
+    this.isAdmin.next(false);
+  }
+
   loged(): void {
     this.isConnected.next(true);
   }

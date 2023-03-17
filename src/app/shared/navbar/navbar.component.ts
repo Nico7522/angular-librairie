@@ -27,7 +27,10 @@ export class NavbarComponent implements OnInit {
     this.isSwitch === true ? false : true;
   }
 
-  connect(): void {}
+  disconnect(): void {
+    this._authService.disconnect();
+
+  }
 
   isActive(state: string) {
     this.whereWeAre = state;
