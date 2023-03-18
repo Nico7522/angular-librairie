@@ -6,6 +6,8 @@ import { MembersComponent } from './members.component';
 import { BooksComponent } from './books/books.component';
 import { AuthorsComponent } from './authors/authors.component';
 import { CategoriesComponent } from './categories/categories.component';
+import { ListauthorsComponent } from './books/listauthors/listauthors.component';
+
 
 
 @NgModule({
@@ -13,7 +15,8 @@ import { CategoriesComponent } from './categories/categories.component';
     MembersComponent,
     BooksComponent,
     AuthorsComponent,
-    CategoriesComponent
+    CategoriesComponent,
+    ListauthorsComponent
   ],
   imports: [
     CommonModule,
