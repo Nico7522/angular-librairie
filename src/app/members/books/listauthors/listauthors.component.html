@@ -1,1 +1,6 @@
-<p *ngFor="let a of authors"> Authors : {{a.name}} {{a.surname}}</p>
+
+<div *ngIf="authors.length > 0">
+    <p *ngFor="let a of authors"> Authors : {{a.name}} {{a.surname}}</p>
+
+
+</div>

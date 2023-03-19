@@ -5,7 +5,9 @@
   }
   
   img {
-    max-width: 100%; /* Assure que l'image ne dépasse pas la largeur de la container */
+    max-width: 300px; /* Assure que l'image ne dépasse pas la largeur de la container */
+    min-height: 300px;
+    max-height: 300px;
     height: auto; /* Maintient le ratio d'aspect de l'image */
     display: block; /* Supprime les marges par défaut */
     margin: 0 auto 20px; /* Centre l'image et ajoute une marge en dessous */
@@ -34,5 +36,8 @@
     margin: auto;
     background: #000;
     color: azure;
+    -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+-moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
 
   }
