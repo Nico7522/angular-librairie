@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './auth/login/login.component';
+import { RegisterComponent } from './auth/register/register.component';
 import { GestionComponent } from './gestion/gestion.component';
 import { GestionModule } from './gestion/gestion.module';
 import { AuthorsComponent } from './members/authors/authors.component';
@@ -14,6 +15,7 @@ const routes: Routes = [
   {path: '', component: MembersComponent, loadChildren: () => import('./members/members.module').then(m => MembersModule)},
   {path: 'gestion', component: GestionComponent, loadChildren: () => import('./gestion/gestion.module').then(m => GestionModule)},
   {path: 'login', component: LoginComponent},
+  {path: 'register', component: RegisterComponent},
   {path: 'profil', component: ProfileComponent},
   {path: 'books', component: BooksComponent},
   {path: 'authors', component: AuthorsComponent},

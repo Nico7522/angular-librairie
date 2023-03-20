@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
 import { AuthService } from '../services/auth.service';
 
 @Component({
@@ -12,6 +13,7 @@ export class LoginComponent {
   isConnected: boolean = false;
   isAdmin: boolean = false;
   loginForm: FormGroup;
+  name!: string
   constructor(
     private _authService: AuthService,
     private _fb: FormBuilder,
@@ -43,11 +45,12 @@ export class LoginComponent {
 
   connect(): void {
     console.log(this.loginForm.value);
-
     if (this.loginForm.valid) {
       this._authService.connect(this.loginForm.value).subscribe({
         next: (res) => {
-          console.log(res.result.user.role);
+          localStorage.setItem('id', res.result.user.id.toString());
+          localStorage.setItem('name', res.result.user.name);
+          localStorage.setItem('role', res.result.user.role);
           this._authService.loged();
           if (res.result.user.role === "Admin") {
             console.log('je suis un admin');
