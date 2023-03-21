@@ -5,17 +5,26 @@ import { GestionRoutingModule } from './gestion-routing.module';
 import { GestionComponent } from './gestion.component';
 import { GestionusersComponent } from './gestionusers/gestionusers.component';
 import { GestionordersComponent } from './gestionorders/gestionorders.component';
+import { GestionbooksComponent } from './gestionbooks/gestionbooks.component';
+import { CreatebooksComponent } from './gestionbooks/createbooks/createbooks.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 
 
 @NgModule({
   declarations: [
     GestionComponent,
     GestionusersComponent,
-    GestionordersComponent
+    GestionordersComponent,
+    GestionbooksComponent,
+    CreatebooksComponent,
+  
   ],
   imports: [
     CommonModule,
-    GestionRoutingModule
+    GestionRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class GestionModule { }

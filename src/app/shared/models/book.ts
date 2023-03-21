@@ -10,6 +10,12 @@ export interface Book {
 
 }
 
+export interface finalDataBook {
+    title: string;
+    price: number;
+    authors: Author[]
+}
+
 
 export interface BookArray {
     results: Book[];

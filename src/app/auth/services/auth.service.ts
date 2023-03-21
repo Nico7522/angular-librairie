@@ -25,9 +25,9 @@ export class AuthService {
   }
 
   disconnect(): void {
+    localStorage.clear();
     this.isConnected.next(false);
     this.isAdmin.next(false);
-    localStorage.clear();
   }
 
   loged(): void {

@@ -30,7 +30,7 @@
 </nav> -->
 <nav>
   <div class="navbar" *ngIf="isAdmin && isConnected">
-    <a (click)="isActive('books')" [ngClass]="whereWeAre === 'books' ? 'active' : null " routerLink="/books">Gestion books</a>
+    <a (click)="isActive('books')" [ngClass]="whereWeAre === 'books' ? 'active' : null " routerLink="/gestion/gestionbooks">Gestion books</a>
     <a (click)="isActive('authors')" [ngClass]="whereWeAre === 'authors' ? 'active' : null " routerLink="/authors">Gestion authors</a>
     <a (click)="isActive('categories')" [ngClass]="whereWeAre === 'categories' ? 'active' : null " routerLink="/categories">Gestion categories</a>
     <a (click)="isActive('users')" [ngClass]="whereWeAre === 'users' ? 'active' : null " routerLink="/gestion/gestionusers">Gestion users</a>

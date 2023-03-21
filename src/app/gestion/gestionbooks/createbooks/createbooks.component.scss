@@ -1,0 +1,26 @@
+h3 {
+    text-align: center;
+}
+
+section {
+    width: 350px;
+    height: auto;
+    margin: auto;
+    border: solid black 3px;
+    background: #000;
+    color: whitesmoke;
+    -webkit-box-shadow: -14px -8px 39px 3px rgba(0,0,0,0.69);
+    -moz-box-shadow: -14px -8px 39px 3px rgba(0,0,0,0.69);
+    box-shadow: -14px -8px 39px 3px rgba(0,0,0,0.69);
+  }
+  
+  form {
+    margin: 15px auto;
+    width: 220px;
+    font-size: 1.1rem;
+  }
+
+  form > button {
+    margin-top: 15px;
+    width: 100px;
+  }

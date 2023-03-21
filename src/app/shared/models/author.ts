@@ -3,3 +3,9 @@ export interface Author {
     surname: string;
     birthdate: Date;
 }
+
+export interface AuthorArray {
+    results: Author[];
+    count: number;
+    statusCode: number;
+}

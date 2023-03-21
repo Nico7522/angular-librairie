@@ -1,0 +1,79 @@
+.container {
+    max-width: 300px; /* Ajustez la largeur de votre choix */
+    margin: 0 auto; /* Centre le contenu */
+    text-align: center; /* Centre le titre */
+  }
+  
+  img {
+    max-width: 300px; /* Assure que l'image ne dépasse pas la largeur de la container */
+    min-height: 300px;
+    max-height: 300px;
+    height: auto; /* Maintient le ratio d'aspect de l'image */
+    display: block; /* Supprime les marges par défaut */
+    margin: 0 auto 20px; /* Centre l'image et ajoute une marge en dessous */
+  }
+  h2 {
+    text-align: center;
+  }
+  
+  h1 {
+    font-size: 32px; /* Ajustez la taille de votre choix */
+    margin-bottom: 20px; /* Ajoute une marge en dessous du titre */
+  }
+  
+  p {
+    font-size: 16px; /* Ajustez la taille de votre choix */
+    line-height: 1.5; /* Ajustez l'interligne de votre choix */
+    margin-bottom: 20px; /* Ajoute une marge en dessous des paragraphes */
+  }
+  
+  .book {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    max-width: 800px;
+    margin: auto;
+    background: #000;
+    color: azure;
+    -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+-moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+
+}
+
+/* Style pour les boutons */
+button {
+    background-color: rgb(139, 103, 26); /* Couleur de fond */
+    border: none; /* Pas de bordure */
+    color: white; /* Couleur du texte */
+    padding: 10px 20px; /* Espace interne */
+    text-align: center; /* Alignement du texte */
+    text-decoration: none; /* Pas de décoration de texte */
+    display: inline-block; /* Affichage en bloc */
+    font-size: 16px; /* Taille de police */
+    margin: 4px 2px; /* Marge externe */
+    cursor: pointer; /* Curseur de souris */
+    border-radius: 8px; /* Rayon de bordure */
+  }
+  
+  .add > button {
+    width: 200px;
+    padding: 20px 20px;
+    margin: 30px 30px 30px 30px;
+    background: black;
+    font-size: 19px;
+  }
+
+.main {
+
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+a {
+    color: beige;
+    text-decoration: none;
+}
+

@@ -1,0 +1,19 @@
+<h2>Books gestion</h2>
+<section class="main">
+
+    <section class="book">
+      <div *ngFor="let book of listBooks" class="container">
+        <h1>{{ book.title }}</h1>
+        <img [src]="imgPath + book.cover" />
+        <button>Update cover</button>
+        <h3 *ngFor="let n of book.authors">Authors : {{ n.name }}</h3>
+        <p>Price : {{ book.price }}$</p>
+        <button>Update</button>
+        <button>Delete</button>
+      </div>
+    </section>
+    <div class="add">
+      <button><a routerLink="/gestion/gestionbooks/create">Add book</a></button>
+    </div>
+
+</section>
