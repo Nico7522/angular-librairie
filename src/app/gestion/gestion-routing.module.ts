@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CreatebooksComponent } from './gestionbooks/createbooks/createbooks.component';
 import { GestionbooksComponent } from './gestionbooks/gestionbooks.component';
+import { UpdatebooksComponent } from './gestionbooks/updatebooks/updatebooks.component';
 import { GestionordersComponent } from './gestionorders/gestionorders.component';
 import { GestionusersComponent } from './gestionusers/gestionusers.component';
 
@@ -10,6 +11,7 @@ const routes: Routes = [
   {path: 'gestionorders', component: GestionordersComponent},
   {path: 'gestionbooks', component: GestionbooksComponent},
   {path: 'gestionbooks/create', component: CreatebooksComponent},
+  {path: 'gestionbooks/update/:id', component: UpdatebooksComponent},
 ];
 
 @NgModule({

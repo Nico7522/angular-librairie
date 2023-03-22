@@ -1,37 +1,56 @@
 <h3>Add a book here</h3>
 
 <section>
-    <form [formGroup]="newBook" (ngSubmit)="createBook()">
-        <div>
-            <label for="title">Title : </label>
-            <input type="text" id="title" formControlName="title">
-        </div>
-        <div>
-            <label for="price">Price : </label>
-            <input type="number" id="price" formControlName="price">
-        </div>
-           <label for="authors">Authors : </label >
+  <form [formGroup]="newBook" (ngSubmit)="createBook()">
+    <div>
+      <label for="title">Title : </label>
+      <input type="text" id="title" formControlName="title" />
+    </div>
+    <div>
+      <label for="price">Price : </label>
+      <input type="number" id="price" formControlName="price" />
+    </div>
+    <!-- <label for="authors">Authors : </label >
             <select  name="" id="authors" multiple >
                 <option  *ngFor="let a of myAuthorsList" [ngValue]="a.id" (click)="addA(a.id)">{{a.surname}}</option>
-            </select>
-            <button type="submit" (click)="sendData()" >Add book</button>
-    </form>
+            </select> -->
+            <h3>Authors : </h3>
+    <ul>
+      <li *ngFor="let author of myAuthorsList">
+        <a (click)="addA(author.id)">{{ author.surname }} </a>
+        <button type="submit" (click)="DeleteA(author.id)">X</button>
+      </li>
+    </ul>
+
+            <h3>Categories</h3>
+    <ul>
+        <li *ngFor="let cate of categorieList"><a 
+            (click)="addC(cate.id)">
+            {{cate.name}}
+        </a>
+        <button type="submit" (click)="DeleteC(cate.id)">X</button>
+        </li>
+    </ul>
+
+    <button type="submit" (click)="sendData()">Add book</button>
+  </form>
 </section>
 
 <h2>↓↓↓ FORMULAIRE JUSTE AVEC LE TITRE ET LE PRIX ↓↓↓</h2>
-{{newBook.value | json}}
+{{ newBook.value | json }}
 <br />
 <h2>↓↓↓ LE SELECT AVEC LES AUTEURS DEJA EN DB ↓↓↓</h2>
-{{authorsTab | json}}
-<br/>
+{{ authorsTab | json }}
+<br />
+<h2>↓↓↓ LE SELECT AVEC LES CATEGORIES EN DB ↓↓↓</h2>
+{{ cateTab | json }}
+<br />
 
 <h2>↓↓↓ LES DONNEES À RENVOYER ↓↓↓</h2>
-{{finalData | json}}
+{{ finalData | json }}
 
 
-
-
-       <!-- <div formArrayName="authors">
+<!-- <div formArrayName="authors">
             <h3>Linked authors</h3>
             <button type="button" (click)="addAuthors()">Add book</button>
             <div *ngFor="let author of authors.controls; index as i">

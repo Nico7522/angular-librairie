@@ -1,9 +1,13 @@
+import { DomElementSchemaRegistry } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AuthService } from 'src/app/auth/services/auth.service';
 import { AuthorsInfos, Book, finalDataBook } from 'src/app/shared/models/book';
+import { Categorie } from 'src/app/shared/models/categorie';
 import { AuthorService } from 'src/app/shared/services/author.service';
 import { BookService } from 'src/app/shared/services/book.service';
+import { CategorieService } from 'src/app/shared/services/categorie.service';
 
 @Component({
   selector: 'app-createbooks',
@@ -21,14 +25,19 @@ export class CreatebooksComponent implements OnInit {
     title: '',
     price: 0,
     authors: [],
+    categories: []
   };
 
   myAuthorsList: any[] = [];
+  categorieList: Categorie[] = []
+  cateTab: any[] = []
 
   constructor(
     private _fb: FormBuilder,
     private _bookService: BookService,
-    private _authorService: AuthorService
+    private _authorService: AuthorService,
+    private _categorieService: CategorieService,
+    private _router: Router
   ) {
     this.newBook = this._fb.group({
       title: [null, Validators.required],
@@ -42,44 +51,60 @@ export class CreatebooksComponent implements OnInit {
       id,
     });
   }
+
+  addC(id: number): void {
+    this.cateTab.push(
+      id
+    );
+  }
   sendData() {
     this.finalData = {
       title: this.newBook.get('title')?.value,
       price: this.newBook.get('price')?.value,
       authors: this.authorsTab,
+      categories: this.cateTab
     };
   }
 
-  // removeAuthors(id: number) {
-  //   this.authors.removeAt(id);
-  // }
+
 
   ngOnInit(): void {
     this._bookService.getAll().subscribe({
       next: (res) => {
         this.listBooks = res.results;
-        console.log(this.listBooks);
-        // this.listAuthors = this.listBooks.map((a) => a.authors);
-        // console.log(this.listAuthors);
-        // this.listAuthors2 = this.listAuthors.map((autheur) => autheur[0]);
-        // console.log(this.listAuthors2);
       },
     });
     this._authorService.getAll().subscribe({
       next: (res) => {
         this.myAuthorsList = res.results;
-        console.log(this.myAuthorsList);
       },
     });
+    this._categorieService.getAll().subscribe({
+      next: (res) => {
+        this.categorieList = res.results     
+      }
+    })
+
   }
 
   createBook() {
     if (this.newBook.valid) {
       this._bookService.create(this.finalData).subscribe({
         next: (res) => {
-          console.log(res);
         },
+
+        complete: () => {
+          this._router.navigateByUrl('/gestion/gestionbooks')
+        }
       });
     }
+  }
+
+  DeleteA(id: number){
+    this.authorsTab = this.authorsTab.filter(a => a.id != id)
+  }
+
+  DeleteC(id: number){
+    this.cateTab = this.cateTab.filter(a => a != id)
   }
 }

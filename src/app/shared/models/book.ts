@@ -1,4 +1,5 @@
 import { Author } from "./author";
+import { Categorie } from "./categorie";
 
 export interface Book {
     id: number;
@@ -10,10 +11,16 @@ export interface Book {
 
 }
 
+export interface BookResult {
+    result: Book
+    statusCode: number
+}
+
 export interface finalDataBook {
     title: string;
     price: number;
     authors: Author[]
+    categories: Categorie[]
 }
 
 

@@ -1,0 +1,33 @@
+<p>updatebooks works!</p>
+
+
+<section>
+    <form [formGroup]="updateBookForm" (ngSubmit)="updateBook()">
+    
+      <div>
+        <label for="title">Title : </label>
+        <input type="text" id="title" formControlName="title" />
+      </div>
+      <div>
+        <label for="price">Price : </label>
+        <input type="number" id="price" formControlName="price" />
+      </div>
+      
+      <div>
+        <label for="authors">Authors ID : </label>
+        <input type="text" id="authors" formControlName="authorsId">
+      </div>
+      <!-- <label for="authors">Authors : </label >
+              <select  name="" id="authors" multiple >
+                  <option  *ngFor="let a of myAuthorsList" [ngValue]="a.id" (click)="addA(a.id)">{{a.surname}}</option>
+              </select> -->
+      <!-- <ul>
+        <li *ngFor="let author of myAuthorsList">
+          <a (click)="addA(author.id)">{{ author.surname }} </a>
+          <button type="submit" (click)="DeleteA(author.id)">X</button>
+        </li>
+      </ul> -->
+  
+      <button type="submit">Update book</button>
+    </form>
+  </section>
