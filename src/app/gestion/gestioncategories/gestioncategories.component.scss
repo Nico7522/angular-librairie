@@ -1,3 +1,5 @@
+$delete-red: red;
+
 main {
     display: flex;
     justify-content: center;
@@ -61,6 +63,116 @@ ul {
     border: 1px solid rgb(139, 103, 26); /* ajoute une bordure en bas pour chaque élément */
     cursor: pointer;
   }
+
+  p {
+    color: red;
+    font-size: 16px;
+  }
+
+  p.success {
+    color: greenyellow;
+    font-size: 16px;
+
+  }
+
+  label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  input[type="text"] {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+    font-size: 16px;
+    color: #555;
+  }
+  
+  button {
+    background-color: rgb(80, 75, 65); /* Couleur de fond */
+    border: none; /* Pas de bordure */
+    color: white; /* Couleur du texte */
+    padding: 5px 10px; /* Espace interne */
+    text-align: center; /* Alignement du texte */
+    text-decoration: none; /* Pas de décoration de texte */
+    display: inline-block; /* Affichage en bloc */
+    font-size: 16px; /* Taille de police */
+    margin: 4px 2px; /* Marge externe */
+    cursor: pointer; /* Curseur de souris */
+    border-radius: 8px; /* Rayon de bordure */
+  }
+
+  .add{
+    width: 50px;
+    padding: 5px 10px;;
+    margin-left: 2px;
+    margin-top: -10px;
+    background: rgb(80, 75, 65);
+    font-size: 16px;
+  }
+
+  .btn {
+    display: flex;
+    align-items: center;
+    background: none;
+    border: 1px solid lighten(gray, 24%);
+    height: 25px;
+    padding:2px;
+    letter-spacing: .25px;
+    border-radius: 15px;
+    cursor: pointer;
+    
+    &:focus {
+      outline: none;
+    }
+    
+    .mdi {
+      margin-right: 1px;
+    }
+  }
+  
+  .btn-delete {
+    font-size: 16px;
+    color: red;
+    background-color: #000;
+    
+    >.mdi-delete-empty {
+      display: none;
+    }
+    
+    &:hover {
+      background-color: lighten(red, 48%);
+      
+      >.mdi-delete-empty {
+        display: block;
+      }
+      
+      >.mdi-delete {
+        display: none;
+      }
+    }
+    
+  
+    
+    &:focus {
+      box-shadow: 0 0 0 4px lighten(red, 40%);
+    }
+  }
+
+  .perso {
+    position: absolute;
+    left: 100px;
+    margin-top: -25px;
+    
+  }
+
+  
+
   
 
   

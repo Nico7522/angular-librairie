@@ -4,9 +4,26 @@
 <div>
     <h3>Available categories</h3>
     <ul>
-        <li *ngFor="let cate of listCategorie" (click)="selectCategorie(cate.id)">{{cate.name}}</li>
+        <li *ngFor="let cate of listCategorie" > <a (click)="selectCategorie(cate.id)" >{{cate.name}}</a>  
+            <button (click)="deleteCate(cate.id)" class="btn btn-delete perso">
+                <span class="mdi mdi-delete mdi-24px"></span>
+                <span class="mdi mdi-delete-empty mdi-24px"></span>
+                <span>X</span>
+              </button>
+
+        </li>
+       
         
     </ul>
+    <button (click)="addCategorie()">{{createNewCate ? "Hide input" : "Add new categorie"}}</button>
+    <div *ngIf="createNewCate">
+        <label for="cate">Name : </label>
+        <input type="text" name="" id="cate" [(ngModel)]="input">
+        <button (click)="sendData()" class="add">Add</button>
+        
+    </div>
+    <p class="success">{{successMessage}}</p>
+    <p>{{errorMessage}}</p>
 </div>
 
 <section>

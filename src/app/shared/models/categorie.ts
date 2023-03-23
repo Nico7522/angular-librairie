@@ -11,3 +11,8 @@ export interface CategorieResultArray {
     count: number
     statusCode: number
 }
+
+export interface CategorieArray {
+    results : Categorie[]
+    statusCode: number
+}
