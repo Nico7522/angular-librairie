@@ -1,0 +1,24 @@
+<h2>All available categories</h2>
+
+<main>
+<div>
+    <h3>Available categories</h3>
+    <ul>
+        <li *ngFor="let cate of listCategorie" (click)="selectCategorie(cate.id)">{{cate.name}}</li>
+        
+    </ul>
+</div>
+
+<section>
+
+
+
+    <div *ngFor="let book of listToShow" class="container">
+        <h1>{{book.title}}</h1>
+        <img [src]="imgPath + book.cover" />
+       
+        <p>Price : {{book.price}}$</p>
+        <p></p>
+      </div>
+    </section>
+</main>

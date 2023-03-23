@@ -1,6 +1,9 @@
+import { Book } from "./book"
+
 export interface Categorie {
     id: number
     name: string
+    book: Book[]
 }
 
 export interface CategorieResultArray {

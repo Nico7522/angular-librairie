@@ -1,0 +1,66 @@
+main {
+    display: flex;
+    justify-content: center;
+  
+}
+.container {
+  max-width: 300px; /* Ajustez la largeur de votre choix */
+  margin: 10px 10px 10px 10px; /* Centre le contenu */
+  text-align: center; /* Centre le titre */
+}
+
+img {
+  max-width: 300px; /* Assure que l'image ne dépasse pas la largeur de la container */
+  min-height: 300px;
+  max-height: 300px;
+  height: auto; /* Maintient le ratio d'aspect de l'image */
+  display: block; /* Supprime les marges par défaut */
+  margin: auto /* Centre l'image et ajoute une marge en dessous */
+}
+h2 {
+  text-align: center;
+}
+
+h1 {
+  font-size: 32px; /* Ajustez la taille de votre choix */
+  margin-bottom: 20px; /* Ajoute une marge en dessous du titre */
+}
+
+p {
+  font-size: 16px; /* Ajustez la taille de votre choix */
+  line-height: 1.5; /* Ajustez l'interligne de votre choix */
+  margin-bottom: 20px; /* Ajoute une marge en dessous des paragraphes */
+}
+
+section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  max-width: 800px;
+  margin: auto;
+  background: #000;
+  color: azure;
+  -webkit-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+}
+
+ul {
+    text-align: center;
+    list-style: none; /* supprime les puces par défaut */
+    padding: 0; /* supprime le padding par défaut */
+    width: 100px;
+    margin: 0; /* supprime la marge par défaut */
+    background: #130d0d;
+    color: rgb(139, 103, 26);;
+  }
+  
+  li {
+    padding: 10px; /* ajoute un padding pour l'apparence */
+    border: 1px solid rgb(139, 103, 26); /* ajoute une bordure en bas pour chaque élément */
+    cursor: pointer;
+  }
+  
+
+  

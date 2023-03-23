@@ -9,6 +9,7 @@ import { GestionbooksComponent } from './gestionbooks/gestionbooks.component';
 import { CreatebooksComponent } from './gestionbooks/createbooks/createbooks.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UpdatebooksComponent } from './gestionbooks/updatebooks/updatebooks.component';
+import { GestioncategoriesComponent } from './gestioncategories/gestioncategories.component';
 
 
 
@@ -20,6 +21,7 @@ import { UpdatebooksComponent } from './gestionbooks/updatebooks/updatebooks.com
     GestionbooksComponent,
     CreatebooksComponent,
     UpdatebooksComponent,
+    GestioncategoriesComponent,
   
   ],
   imports: [

@@ -10,10 +10,6 @@
       <label for="price">Price : </label>
       <input type="number" id="price" formControlName="price" />
     </div>
-    <!-- <label for="authors">Authors : </label >
-            <select  name="" id="authors" multiple >
-                <option  *ngFor="let a of myAuthorsList" [ngValue]="a.id" (click)="addA(a.id)">{{a.surname}}</option>
-            </select> -->
             <h3>Authors : </h3>
     <ul>
       <li *ngFor="let author of myAuthorsList">
@@ -50,13 +46,3 @@
 {{ finalData | json }}
 
 
-<!-- <div formArrayName="authors">
-            <h3>Linked authors</h3>
-            <button type="button" (click)="addAuthors()">Add book</button>
-            <div *ngFor="let author of authors.controls; index as i">
-                <label for="">ID : </label>
-                <input type="text" [formControlName]="i">
-                <button (click)="removeAuthors(i)" type="submit">Remove</button>
-            
-            </div>
-        </div> -->

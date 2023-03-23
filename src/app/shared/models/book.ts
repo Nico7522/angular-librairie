@@ -7,7 +7,7 @@ export interface Book {
     price: number;
     cover: string;
     authors: Author[];
-    categories: [];
+    categories: Categorie[];
 
 }
 
