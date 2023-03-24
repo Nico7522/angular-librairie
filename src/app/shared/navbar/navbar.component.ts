@@ -15,6 +15,7 @@ export class NavbarComponent implements OnInit {
   isSwitch: boolean = false;
   name!:string | null
   role!:string | null
+  token!: any | null
   constructor(private _authService: AuthService) {}
 
   ngOnInit() {
@@ -23,8 +24,9 @@ export class NavbarComponent implements OnInit {
     });
     this._authService.isConnected.subscribe((state: boolean) => {
       this.isConnected = state;
-      this.name = localStorage.getItem('name')
-      this.role = localStorage.getItem('role')
+      this.name = localStorage.getItem('name');
+      this.role = localStorage.getItem('role');
+      this.token = localStorage.getItem('token');
     });
   }
 

@@ -11,6 +11,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UpdatebooksComponent } from './gestionbooks/updatebooks/updatebooks.component';
 import { GestioncategoriesComponent } from './gestioncategories/gestioncategories.component';
 import { CreatecategoriesComponent } from './gestioncategories/createcategories/createcategories.component';
+import { GestionusersDirective } from './gestionusers.directive';
 
 
 
@@ -24,6 +25,7 @@ import { CreatecategoriesComponent } from './gestioncategories/createcategories/
     UpdatebooksComponent,
     GestioncategoriesComponent,
     CreatecategoriesComponent,
+    GestionusersDirective,
   
   ],
   imports: [

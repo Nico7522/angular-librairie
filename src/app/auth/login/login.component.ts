@@ -51,6 +51,7 @@ export class LoginComponent {
           localStorage.setItem('id', res.result.user.id.toString());
           localStorage.setItem('name', res.result.user.name);
           localStorage.setItem('role', res.result.user.role);
+          localStorage.setItem('token', res.result.token);
           this._authService.loged();
           if (res.result.user.role === "Admin") {
             console.log('je suis un admin');

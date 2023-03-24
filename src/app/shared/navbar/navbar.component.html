@@ -28,30 +28,30 @@
     <button type="submit" >Switch to admin mode</button>
 
 </nav> -->
-<nav>
-  <div class="navbar" *ngIf="isAdmin && isConnected">
+<nav >
+  <div class="navbar" *ngIf="role === 'Admin'">
     <a (click)="isActive('books')" [ngClass]="whereWeAre === 'books' ? 'active' : null " routerLink="/gestion/gestionbooks">Gestion books</a>
     <a (click)="isActive('authors')" [ngClass]="whereWeAre === 'authors' ? 'active' : null " routerLink="/authors">Gestion authors</a>
-    <a (click)="isActive('categories')" [ngClass]="whereWeAre === 'categories' ? 'active' : null " routerLink="/categories">Gestion categories</a>
+    <a (click)="isActive('categories')" [ngClass]="whereWeAre === 'categories' ? 'active' : null " routerLink="/gestion/gestioncategories">Gestion categories</a>
     <a (click)="isActive('users')" [ngClass]="whereWeAre === 'users' ? 'active' : null " routerLink="/gestion/gestionusers">Gestion users</a>
     <a (click)="isActive('orders')" [ngClass]="whereWeAre === 'orders' ? 'active' : null " routerLink="/gestion/gestionorders">Gestion orders</a>
     <a (click)="isActive('profile')" [ngClass]="whereWeAre === 'profile' ? 'active' : null " routerLink="/profil">My profile</a>
-    <a (click)="isActive('login')" [ngClass]="whereWeAre === 'login' ? 'active' : null " id="login" routerLink="/login" *ngIf="!isConnected">Log in</a>
-    <a (click)="isActive('logout')" [ngClass]="whereWeAre === 'logout' ? 'active' : null " id="logout" routerLink="/" *ngIf="isConnected === true" (click)="disconnect()">Log out</a>
+    <a (click)="isActive('login')" [ngClass]="whereWeAre === 'login' ? 'active' : null " id="login" routerLink="/login" *ngIf="!token">Log in</a>
+    <a (click)="isActive('logout')" [ngClass]="whereWeAre === 'logout' ? 'active' : null " id="logout" routerLink="/" *ngIf="token" (click)="disconnect()">Log out</a>
   </div>
 </nav>
 
 <nav>
-  <div class="navbar" *ngIf="!isAdmin">
+  <div class="navbar" *ngIf="role !== 'Admin' || !token">
     <a (click)="isActive('books')" [ngClass]="whereWeAre === 'books' ? 'active' : null " routerLink="/books">Books</a>
     <a (click)="isActive('authors')" [ngClass]="whereWeAre === 'authors' ? 'active' : null " routerLink="/authors">Authors</a>
     <a (click)="isActive('categories')" [ngClass]="whereWeAre === 'categories' ? 'active' : null " routerLink="/categories">categories</a>
     <a (click)="isActive('profile')" [ngClass]="whereWeAre === 'profile' ? 'active' : null " routerLink="/profil">My profile</a>
     <a (click)="isActive('order')" [ngClass]="whereWeAre === 'order' ? 'active' : null " routerLink="">My orders</a>
-    <a (click)="isActive('login')" [ngClass]="whereWeAre === 'login' ? 'active' : null "  id="login" routerLink="/login" *ngIf="!isConnected">Log in</a>
-    <a (click)="isActive('register')" [ngClass]="whereWeAre === 'register' ? 'active' : null "  id="register" routerLink="/register" *ngIf="!isConnected">Register</a>
-    <a id="logout" *ngIf="isConnected === true" (click)="disconnect()">Log out</a>
+    <a (click)="isActive('login')" [ngClass]="whereWeAre === 'login' ? 'active' : null "  id="login" routerLink="/login" *ngIf="!token">Log in</a>
+    <a (click)="isActive('register')" [ngClass]="whereWeAre === 'register' ? 'active' : null "  id="register" routerLink="/register" *ngIf="!token">Register</a>
+    <a id="logout" *ngIf="token" (click)="disconnect()">Log out</a>
   </div>
 </nav>
 
-<h2 *ngIf="name">Welcome {{name}}, you're logged as {{role}}</h2>
+
