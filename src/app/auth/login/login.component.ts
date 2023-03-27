@@ -10,8 +10,7 @@ import { AuthService } from '../services/auth.service';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent {
-  isConnected: boolean = false;
-  isAdmin: boolean = false;
+
   loginForm: FormGroup;
   name!: string
   constructor(
@@ -34,17 +33,12 @@ export class LoginComponent {
   }
 
   ngOnInit() {
-    this._authService.isAdmin.subscribe((state: boolean) => {
-      this.isAdmin = state;
-    });
+   
 
-    this._authService.isConnected.subscribe((state: boolean) => {
-      this.isConnected = state;
-    });
+  
   }
 
   connect(): void {
-    console.log(this.loginForm.value);
     if (this.loginForm.valid) {
       this._authService.connect(this.loginForm.value).subscribe({
         next: (res) => {
@@ -52,15 +46,14 @@ export class LoginComponent {
           localStorage.setItem('name', res.result.user.name);
           localStorage.setItem('role', res.result.user.role);
           localStorage.setItem('token', res.result.token);
+          localStorage.setItem('avatar', res.result.user.avatar)
+          
           this._authService.loged();
           if (res.result.user.role === "Admin") {
-            console.log('je suis un admin');
             this._authService.admin();
             this._router.navigateByUrl('/gestion');
           } else {
-            console.log('je suis un user');
-            this._router.navigateByUrl('/');
-            
+            this._router.navigateByUrl('/');           
           }
         },
         error: (err) => {
@@ -72,7 +65,6 @@ export class LoginComponent {
         },
       });
     } else {
-      console.log('form is invalid');
       this._router.navigateByUrl('/');
     }
   }

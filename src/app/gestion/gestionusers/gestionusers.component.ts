@@ -9,7 +9,7 @@ import { UserService } from 'src/app/shared/services/user.service';
 })
 export class GestionusersComponent implements OnInit {
   userList: User[] = [];
- 
+  imgPath: string = 'http://localhost:8080';
   constructor(private _userService: UserService){
 
   }

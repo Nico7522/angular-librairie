@@ -2,13 +2,16 @@
 
 <div class="contact">
     <div *ngFor="let user of userList" class="contact-info"  [appGestionUserColor]="user.role">
+      <div class="img">
+        <img [src]="imgPath + user.avatar">
+      </div>
         <h2>User ID : {{user.id}}</h2>
-        <p><strong>Name : </strong> John Doe</p>
-        <p><strong>Surname :</strong> Jane</p>
-        <p><strong>Adresse :</strong> 123 Rue du Paradis, 75001 Paris</p>
-        <p><strong>Email :</strong> jane.doe@gmail.com</p>
-        <p><strong>Phone number :</strong> 01 23 45 67 89</p>
-        <p><strong>Role :</strong> 01 23 45 67 89</p>
+        <p><strong>Name : </strong> {{user.name}}</p>
+        <p><strong>Surname :</strong> {{user.surname}}</p>
+        <p><strong>Adresse :</strong> {{user.adresse}}</p>
+        <p><strong>Email :</strong> {{user.email}}</p>
+        <p><strong>Phone number :</strong> {{user.phonenumber}}</p>
+        <p><strong>Role :</strong> {{user.role}}</p>
         <button class="btn" (click)="deleteUser(user.id)">X</button>
       </div>
 </div>

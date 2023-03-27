@@ -60,7 +60,19 @@
     color: white; /* couleur du texte pour l'élément actif */
   }
 
-  #login, #logout, #register {
+  .img, #login, #logout, #register {
     float: right;
   }
+
+.img {
+  position: absolute;
+ width: 45px;
+ border-width: 0;
+ right: 100px;
+}
+img {
+  width: 100%;
+  border: none
+}
+
   
