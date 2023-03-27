@@ -1,13 +1,14 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { UserResult, UsersResult } from '../models/user';
+import { User, UserResult, UsersResult } from '../models/user';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
   private _userUrl = "http://localhost:8080/api/user/"
+  avatar: FormData = new FormData()
   constructor(private _httpClient: HttpClient) { }
 
   getAll(): Observable<UsersResult> {
@@ -18,7 +19,16 @@ export class UserService {
     return this._httpClient.get<any>(this._userUrl+id)
   }
 
+  update(id: number, userToUpdate: User ): Observable<any> {
+    return this._httpClient.put(this._userUrl+id, userToUpdate)
+  }
+
   delete(id: number): Observable<any> {
     return this._httpClient.delete<any>(this._userUrl+id)
+  }
+
+  updateAvatar(id: number, avatarF: File): Observable<any> {
+    this.avatar.append('avatar', avatarF)
+    return this._httpClient.patch(this._userUrl+id + '/updateavatar', this.avatar)
   }
 }

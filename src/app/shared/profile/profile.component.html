@@ -5,16 +5,18 @@
         <img [src]="imgPath + personnalInfo.avatar" >
 
     </div>
-    <input type="file" class="file-input" #fileUpload >
+    <input type="file" class="file-input" #fileUpload (change)="recupImg($event)">
     <div class="file-upload">
         <button class="show" (click)="fileUpload.click()"
          > Update image
         </button>
-        <button >Up</button>
+        <button (click)="updateAvatar(personnalInfo.id)">Up</button>
     </div>
     <h3> Name : {{personnalInfo.name}} <br> Surname : {{personnalInfo.surname}}</h3>
+    <p><strong>Birthdate :</strong> {{bdUser}}</p>
     <p><strong>Adresse :</strong> {{personnalInfo.adresse}}</p>
     <p><strong>Email :</strong> {{personnalInfo.email}}</p>
     <p><strong>Phone number :</strong> {{personnalInfo.phonenumber}}</p>
     <p><strong>Role :</strong> {{personnalInfo.role}}</p>
+    <button class="updateprofil" routerLink="/profil/{{personnalInfo.id}}/update">Update profile</button>
 </div>

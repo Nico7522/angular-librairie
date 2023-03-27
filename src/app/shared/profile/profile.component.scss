@@ -2,6 +2,10 @@ div {
     width: 300px;
     margin: auto;
     border: solid black 4px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 div.img {
     width: 50%;
@@ -47,5 +51,9 @@ h3, p {
   div.file-upload {
     border: none;
     width: 100%;
-    margin-left: 45px;
+   
+  }
+  .updateprofil {
+    width: 50%;
+   
   }

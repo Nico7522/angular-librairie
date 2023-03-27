@@ -8,6 +8,7 @@ import { LoginComponent } from './auth/login/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ProfileComponent } from './shared/profile/profile.component';
 import { RegisterComponent } from './auth/register/register.component';
+import { UpdateprofileComponent } from './shared/profile/updateprofile/updateprofile.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { RegisterComponent } from './auth/register/register.component';
     NavbarComponent,
     LoginComponent,
     ProfileComponent,
-    RegisterComponent
+    RegisterComponent,
+    UpdateprofileComponent
   ],
   imports: [
     BrowserModule,
