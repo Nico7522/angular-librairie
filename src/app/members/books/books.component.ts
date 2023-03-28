@@ -11,7 +11,14 @@ export class BooksComponent implements OnInit {
   // img!: SafeUrl
   listBooks: Book[] = []
   imgPath: string = 'http://localhost:8080'
+  addToShoppingCart: number = 0
   constructor(private _bookService: BookService){
+    
+  }
+  addToCartShop(){
+    this.addToShoppingCart = this.addToShoppingCart+1
+    this._bookService.add(this.addToShoppingCart);
+    console.log(this.addToShoppingCart);
     
   }
   ngOnInit(): void {
@@ -19,11 +26,13 @@ export class BooksComponent implements OnInit {
       next: (res) => {
         this.listBooks = res.results;
         console.log(this.listBooks);
-        
-        
-        
-        // this.img = this.sanitizer.bypassSecurityTrustResourceUrl(this.listBooks[0].cover);
       }
-    })
+  })
+  this._bookService.inShoppingCart.subscribe({
+    next: (res) => {
+      this.addToShoppingCart = res
+    }
+  })
   }
+  
 }

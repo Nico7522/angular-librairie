@@ -7,6 +7,8 @@ import { Book, BookArray, BookResult, finalDataBook } from '../models/book';
   providedIn: 'root'
 })
 export class BookService {
+  numToAdd!: number
+  inShoppingCart: BehaviorSubject<number> = new BehaviorSubject(0);
   private _bookUrl = 'http://localhost:8080/api/book/'
   constructor(private _httpClient : HttpClient) { }
 
@@ -29,4 +31,10 @@ export class BookService {
   delete(id : number): Observable<any> {
     return this._httpClient.delete<any>(this._bookUrl+id)
   }
+
+  add(val: number) {
+     this.inShoppingCart.next(val)   
+  }
 }
+
+

@@ -1,6 +1,7 @@
 <main>
   <app-navbar />
   <div class="content">
+    <app-shopping *ngIf="token" />
     <router-outlet></router-outlet>
   
   </div>

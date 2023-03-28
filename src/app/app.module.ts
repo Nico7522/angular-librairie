@@ -9,6 +9,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { ProfileComponent } from './shared/profile/profile.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { UpdateprofileComponent } from './shared/profile/updateprofile/updateprofile.component';
+import { ShoppingComponent } from './shared/shopping/shopping.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { UpdateprofileComponent } from './shared/profile/updateprofile/updatepro
     LoginComponent,
     ProfileComponent,
     RegisterComponent,
-    UpdateprofileComponent
+    UpdateprofileComponent,
+    ShoppingComponent
   ],
   imports: [
     BrowserModule,

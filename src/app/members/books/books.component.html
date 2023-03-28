@@ -16,6 +16,6 @@
     <img [src]="imgPath + book.cover" />
     <app-listauthors [authors]="book.authors" />
     <p>Price : {{book.price}}$</p>
-    <p></p>
+    <button (click)="addToCartShop()">Add to shopping cart</button>
   </div>
 </section>
