@@ -10,6 +10,10 @@ import { AuthService } from '../services/auth.service';
 })
 export class RegisterComponent {
   registerForm: FormGroup;
+  date = new Date().getFullYear();
+  year!: number;
+  invalidBirthdate: string = '';
+  input: string = ''
   constructor(
     private _fb: FormBuilder,
     private _authService: AuthService,
@@ -41,26 +45,54 @@ export class RegisterComponent {
       ],
     });
   }
+isMajor(){
+  this.registerForm.get("birtdate")?.valueChanges.subscribe(x => {
+    this.year =
+    this.registerForm.get('birtdate')?.value[0] +
+    this.registerForm.get('birtdate')?.value[1] +
+    this.registerForm.get('birtdate')?.value[2] +
+    this.registerForm.get('birtdate')?.value[3];
+  if (this.year > this.date - 18) {
+    this.invalidBirthdate =
+      'You must have at least 18 year old to register !';
+    
+  } else {
+    this.invalidBirthdate = ''
+  }
+  })
 
+}
   register(): void {
+    this.year =
+      this.registerForm.get('birtdate')?.value[0] +
+      this.registerForm.get('birtdate')?.value[1] +
+      this.registerForm.get('birtdate')?.value[2] +
+      this.registerForm.get('birtdate')?.value[3];
+    if (this.year > this.date - 18) {
+      this.invalidBirthdate =
+        'You must have at least 18 year old to register !';
+      return;
+    }
+
     if (this.registerForm.valid) {
       this._authService.register(this.registerForm.value).subscribe({
         next: (res) => {
-          localStorage.setItem('token', res.result.token);
           localStorage.setItem('id', res.result.user.id.toString());
           localStorage.setItem('name', res.result.user.name);
           localStorage.setItem('role', res.result.user.role);
+          localStorage.setItem('token', res.result.token);
+          localStorage.setItem('avatar', res.result.user.avatar);
           this._authService.loged();
         },
         error: (err) => {
-          console.log(err);
+          // console.log(err);
         },
         complete: () => {
           this._router.navigateByUrl('/books');
         },
       });
     } else {
-      console.log('ee');
+      // console.log('ee');
 
       this.registerForm.markAllAsTouched();
     }

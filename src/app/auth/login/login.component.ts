@@ -13,6 +13,7 @@ export class LoginComponent {
 
   loginForm: FormGroup;
   name!: string
+  invalidData: string = ''
   constructor(
     private _authService: AuthService,
     private _fb: FormBuilder,
@@ -53,19 +54,13 @@ export class LoginComponent {
             this._authService.admin();
             this._router.navigateByUrl('/gestion');
           } else {
-            this._router.navigateByUrl('/');           
+            this._router.navigateByUrl('/books');           
           }
-        },
-        error: (err) => {
-          console.log(err);
-        },
-
-        complete: () => {
-         
         },
       });
     } else {
-      this._router.navigateByUrl('/');
+      this.invalidData = 'Invalid email or password, please try again ! '
+      this._router.navigateByUrl('/login');
     }
   }
 }
