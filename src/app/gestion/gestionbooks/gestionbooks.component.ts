@@ -14,9 +14,13 @@ export class GestionbooksComponent {
  
   imgPath: string = 'http://localhost:8080';
   cover!: File 
+  token! : string | null
 
-  constructor(private _bookService: BookService, private _router: Router, private _updateCoverService: UpdatecoverService) {}
+  constructor(private _bookService: BookService, private _router: Router, private _updateCoverService: UpdatecoverService) {
+   
+  }
   ngOnInit(): void {
+
     this._bookService.getAll().subscribe({
       next: (res) => {
         this.listBooks = res.results

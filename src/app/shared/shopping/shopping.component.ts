@@ -7,7 +7,7 @@ import { BookService } from '../services/book.service';
   styleUrls: ['./shopping.component.scss']
 })
 export class ShoppingComponent implements OnInit {
-
+  token = localStorage.getItem('token');
   numToAdd!: number
 
   constructor(private _bookService: BookService){}
