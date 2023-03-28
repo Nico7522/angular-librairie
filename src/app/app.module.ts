@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
@@ -10,6 +10,7 @@ import { ProfileComponent } from './shared/profile/profile.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { UpdateprofileComponent } from './shared/profile/updateprofile/updateprofile.component';
 import { ShoppingComponent } from './shared/shopping/shopping.component';
+import { InterceptorInterceptor } from './auth/interceptor.interceptor';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,7 @@ import { ShoppingComponent } from './shared/shopping/shopping.component';
     HttpClientModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [{ provide: HTTP_INTERCEPTORS, useClass: InterceptorInterceptor, multi : true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -9,8 +9,10 @@ import { BooksComponent } from './members/books/books.component';
 import { CategoriesComponent } from './members/categories/categories.component';
 import { MembersComponent } from './members/members.component';
 import { MembersModule } from './members/members.module';
+import { OrdersComponent } from './members/orders/orders.component';
 import { ProfileComponent } from './shared/profile/profile.component';
 import { UpdateprofileComponent } from './shared/profile/updateprofile/updateprofile.component';
+import { ShoppingComponent } from './shared/shopping/shopping.component';
 
 const routes: Routes = [
   {path: '', component: MembersComponent, loadChildren: () => import('./members/members.module').then(m => MembersModule)},
@@ -22,6 +24,7 @@ const routes: Routes = [
   {path: 'books', component: BooksComponent},
   {path: 'authors', component: AuthorsComponent},
   {path: 'categories', component: CategoriesComponent},
+  {path: 'mybag', component: OrdersComponent},
 ];
 
 @NgModule({

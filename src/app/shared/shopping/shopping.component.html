@@ -1,5 +1,6 @@
 <div class="img">
-    <img src="../../../assets/shopping-cart.png" alt="shopping" />
+    <a></a>
+    <img  routerLink="/mybag" src="../../../assets/shopping-cart.png" alt="shopping" />
     <span> In bag : {{numToAdd}}</span>
     <button (click)="clearCartShop()" *ngIf="numToAdd > 0">Clear</button>
 </div>

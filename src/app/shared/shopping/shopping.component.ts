@@ -7,8 +7,7 @@ import { BookService } from '../services/book.service';
   styleUrls: ['./shopping.component.scss']
 })
 export class ShoppingComponent implements OnInit {
-  imgPath = "/shared/shopping/images/shopping-cart.png"
-  imgPathUrl: string = 'http://localhost:4200'
+
   numToAdd!: number
 
   constructor(private _bookService: BookService){}
@@ -23,5 +22,7 @@ export class ShoppingComponent implements OnInit {
 
   clearCartShop(){
     this._bookService.add(0)
+    this._bookService.clearTabBook.next(true);
+    location.reload();
   }
 }

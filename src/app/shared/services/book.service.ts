@@ -9,6 +9,8 @@ import { Book, BookArray, BookResult, finalDataBook } from '../models/book';
 export class BookService {
   numToAdd!: number
   inShoppingCart: BehaviorSubject<number> = new BehaviorSubject(0);
+  BookToBought: Book[] = []
+  clearTabBook: BehaviorSubject<boolean> = new BehaviorSubject(false)
   private _bookUrl = 'http://localhost:8080/api/book/'
   constructor(private _httpClient : HttpClient) { }
 
@@ -34,6 +36,11 @@ export class BookService {
 
   add(val: number) {
      this.inShoppingCart.next(val)   
+  }
+  addToList(book: Book) {
+    this.BookToBought.push(book)
+    console.log('Dans le book service : ', this.BookToBought);
+    
   }
 }
 

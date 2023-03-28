@@ -7,6 +7,7 @@ import { BooksComponent } from './books/books.component';
 import { AuthorsComponent } from './authors/authors.component';
 import { CategoriesComponent } from './categories/categories.component';
 import { ListauthorsComponent } from './books/listauthors/listauthors.component';
+import { OrdersComponent } from './orders/orders.component';
 
 
 
@@ -16,7 +17,8 @@ import { ListauthorsComponent } from './books/listauthors/listauthors.component'
     BooksComponent,
     AuthorsComponent,
     CategoriesComponent,
-    ListauthorsComponent
+    ListauthorsComponent,
+    OrdersComponent
   ],
   imports: [
     CommonModule,
