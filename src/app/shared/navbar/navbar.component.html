@@ -48,9 +48,9 @@
 <nav>
   <div class="navbar" *ngIf="role !== 'Admin' || !token">
    
-    <a (click)="isActive('books')" [ngClass]="whereWeAre === 'books' ? 'active' : null " routerLink="/books">Books</a>
+    <a (click)="isActive('books')" [ngClass]="whereWeAre === 'books' ? 'active' : null " routerLink="/books">All availables books</a>
     <a (click)="isActive('authors')" [ngClass]="whereWeAre === 'authors' ? 'active' : null " routerLink="/authors">Authors</a>
-    <a (click)="isActive('categories')" [ngClass]="whereWeAre === 'categories' ? 'active' : null " routerLink="/categories">categories</a>
+    <a (click)="isActive('categories')" [ngClass]="whereWeAre === 'categories' ? 'active' : null " routerLink="/categories">Categories</a>
     <a (click)="isActive('profile')" [ngClass]="whereWeAre === 'profile' ? 'active' : null " routerLink="/profil/{{id}}">My profile</a>
     <a (click)="isActive('order')" [ngClass]="whereWeAre === 'order' ? 'active' : null " routerLink="">My orders</a>
     

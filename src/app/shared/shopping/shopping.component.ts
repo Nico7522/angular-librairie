@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/auth/services/auth.service';
 import { BookService } from '../services/book.service';
 
 @Component({
@@ -7,10 +8,11 @@ import { BookService } from '../services/book.service';
   styleUrls: ['./shopping.component.scss']
 })
 export class ShoppingComponent implements OnInit {
-  token = localStorage.getItem('token');
+  // token = localStorage.getItem('token');
+  token! : string | null
   numToAdd!: number
 
-  constructor(private _bookService: BookService){}
+  constructor(private _bookService: BookService, private _authService : AuthService){}
 
   ngOnInit(): void {
       this._bookService.inShoppingCart.subscribe({
@@ -18,11 +20,12 @@ export class ShoppingComponent implements OnInit {
           this.numToAdd = res
         }
       })
+      this.token = this._authService.token
   }
 
   clearCartShop(){
     this._bookService.add(0)
-    this._bookService.clearTabBook.next(true);
+    this._bookService.clearTabBook.next(!this._bookService.clearTabBook);
     location.reload();
   }
 }

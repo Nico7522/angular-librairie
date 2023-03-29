@@ -10,7 +10,7 @@ import { AuthService } from '../services/auth.service';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent {
-
+  
   loginForm: FormGroup;
   name!: string
   invalidData: string = ''
@@ -43,13 +43,13 @@ export class LoginComponent {
     if (this.loginForm.valid) {
       this._authService.connect(this.loginForm.value).subscribe({
         next: (res) => {
+          localStorage.setItem('token', res.result.token);
           localStorage.setItem('id', res.result.user.id.toString());
           localStorage.setItem('name', res.result.user.name);
           localStorage.setItem('role', res.result.user.role);
-          localStorage.setItem('token', res.result.token);
           localStorage.setItem('avatar', res.result.user.avatar)
-          
           this._authService.loged();
+          
           if (res.result.user.role === "Admin") {
             this._authService.admin();
             this._router.navigateByUrl('/gestion');

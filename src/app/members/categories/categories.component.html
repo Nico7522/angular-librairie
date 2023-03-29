@@ -18,7 +18,7 @@
             <img [src]="imgPath + book.cover" />
            
             <p>Price : {{book.price}}$</p>
-            <p></p>
+            <button *ngIf="token" (click)="addToCartShop(book.id)">Add to cart shop</button>
           </div>
         </section>
     </main>

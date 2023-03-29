@@ -12,11 +12,22 @@ export class OrdersComponent implements OnInit {
   constructor(private _bookService: BookService){}
   imgPath: string = 'http://localhost:8080'
   bag: Book[] = []
+  deleteFromBag(id: number) {
+    this.bag = this.bag.filter(b => {
+      return b.id !== id ? b : null
+    })
+    
+    console.log('dans le order',  this.bag);
+    this._bookService.BookToBought = this.bag
+    this._bookService.inShoppingCart.next(this.bag.length)
+   
+  }
   ngOnInit(): void {
       this.bag = this._bookService.BookToBought
       if (!this._bookService.clearTabBook) {
         this.bag = []
       }
+      
   }
-
+  
 }

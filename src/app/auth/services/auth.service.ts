@@ -13,6 +13,7 @@ export class AuthService {
   isConnected: BehaviorSubject<boolean> = new BehaviorSubject(false);
   isAdmin: BehaviorSubject<boolean> = new BehaviorSubject(false);
   name: Observable<string> = new Observable<string>
+  token = localStorage.getItem('token')
 
   constructor(private _httpClient : HttpClient) {}
   connect(login: Login): Observable<AuthResult> {
@@ -32,10 +33,11 @@ export class AuthService {
 
   loged(): void {
     this.isConnected.next(true);
-  
   }
 
   admin(): void {
     this.isAdmin.next(true);
   }
+
+ 
 }

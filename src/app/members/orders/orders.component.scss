@@ -40,3 +40,30 @@ section {
   -moz-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
   box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
 }
+
+button {
+  background-color: rgb(41, 40, 37); /* Couleur de fond */
+  border: none; /* Pas de bordure */
+  color: white; /* Couleur du texte */
+  padding: 10px 20px; /* Espace interne */
+  text-align: center; /* Alignement du texte */
+  text-decoration: none; /* Pas de décoration de texte */
+  display: inline-block; /* Affichage en bloc */
+  font-size: 16px; /* Taille de police */
+  margin: 2px; /* Marge externe */
+  cursor: pointer; /* Curseur de souris */
+  border-radius: 8px; /* Rayon de bordure */
+}
+
+.purchase {
+  background-color: red;
+  width: 200px;
+  margin-top: 15px;
+}
+
+main {
+display: flex;
+flex-direction: column;
+margin-top: 50px;
+align-items: center;
+}

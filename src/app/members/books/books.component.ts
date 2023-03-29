@@ -13,6 +13,7 @@ export class BooksComponent implements OnInit {
   BooksToBought: Book[] = []
   imgPath: string = 'http://localhost:8080'
   addToShoppingCart: number = 0
+  token = localStorage.getItem('token')
   constructor(private _bookService: BookService){
     
   }
@@ -41,6 +42,7 @@ export class BooksComponent implements OnInit {
       this.addToShoppingCart = res
     }
   })
+  console.log(this.token);
   
   }
   

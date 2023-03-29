@@ -10,13 +10,28 @@ import { CategorieService } from 'src/app/shared/services/categorie.service';
   styleUrls: ['./categories.component.scss']
 })
 export class CategoriesComponent {
-
+  addToShoppingCart: number = 0
   imgPath: string = 'http://localhost:8080'
   listCategorie: Categorie[] = [];
   listBook: Book[] = [];
   listToShow: any[] = [];
+  token = localStorage.getItem('token')
   constructor(private _categorieService: CategorieService, private _bookService: BookService) {
 
+  }
+
+  addToCartShop(id: number){
+    this.addToShoppingCart = this.addToShoppingCart+1
+    this._bookService.add(this.addToShoppingCart);
+   
+    this.listToShow.map(book => {
+      if (book.id === id) {
+        this._bookService.addToList(book)
+      }
+    })
+  
+    
+    
   }
 
   ngOnInit(): void {
@@ -29,6 +44,12 @@ export class CategoriesComponent {
       this._bookService.getAll().subscribe({
         next: (res) => {
           this.listBook = res.results
+        }
+      })
+
+      this._bookService.inShoppingCart.subscribe({
+        next: (res) => {
+          this.addToShoppingCart = res
         }
       })
 
