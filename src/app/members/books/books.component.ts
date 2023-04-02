@@ -17,20 +17,23 @@ export class BooksComponent implements OnInit {
   constructor(private _bookService: BookService){
     
   }
-  addToCartShop(id: number){
+  addToCartShop(id: number): void{
     this.addToShoppingCart = this.addToShoppingCart+1
     this._bookService.add(this.addToShoppingCart);
    
     this.listBooks.map(book => {
       if (book.id === id) {
-        this._bookService.addToList(book)
+         this.BooksToBought.push(book)
       }
+      
     })
-  
+    this._bookService.addToBookList(this.BooksToBought)
+    
     
     
   }
   ngOnInit(): void {
+
     this._bookService.getAll().subscribe({
       next: (res) => {
         this.listBooks = res.results;
@@ -45,5 +48,5 @@ export class BooksComponent implements OnInit {
   console.log(this.token);
   
   }
-  
+
 }

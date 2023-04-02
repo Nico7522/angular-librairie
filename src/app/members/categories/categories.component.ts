@@ -14,7 +14,8 @@ export class CategoriesComponent {
   imgPath: string = 'http://localhost:8080'
   listCategorie: Categorie[] = [];
   listBook: Book[] = [];
-  listToShow: any[] = [];
+  listToShow: Book[] = [];
+  tabBookToSend: Book[] = []
   token = localStorage.getItem('token')
   constructor(private _categorieService: CategorieService, private _bookService: BookService) {
 
@@ -26,10 +27,10 @@ export class CategoriesComponent {
    
     this.listToShow.map(book => {
       if (book.id === id) {
-        this._bookService.addToList(book)
+        this.tabBookToSend.push(book)
       }
     })
-  
+    this._bookService.addToBookList(this.tabBookToSend)
     
     
   }
@@ -53,6 +54,7 @@ export class CategoriesComponent {
         }
       })
 
+     
   }
 
   selectCategorie(id: number){

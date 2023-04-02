@@ -4,7 +4,7 @@
       <div *ngFor="let book of bag" class="container">
           <h1>{{book.title}}</h1>
           <img [src]="imgPath + book.cover" />
-          <app-listauthors [authors]="book.authors" />
+          <!-- <app-listauthors [authors]="book.authors" /> -->
           <p>Price : {{book.price}}$</p>
           <button (click)="deleteFromBag(book.id)" >Remove from shopping cart</button>
         </div>

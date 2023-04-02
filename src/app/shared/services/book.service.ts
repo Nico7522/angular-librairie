@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, Observable, Subject } from 'rxjs';
 import { Book, BookArray, BookResult, finalDataBook } from '../models/book';
 
 @Injectable({
@@ -8,8 +8,9 @@ import { Book, BookArray, BookResult, finalDataBook } from '../models/book';
 })
 export class BookService {
   numToAdd!: number
-  inShoppingCart: BehaviorSubject<number> = new BehaviorSubject(0);
   BookToBought: Book[] = []
+  bookList: BehaviorSubject<Book[]> = new BehaviorSubject<Book[]>(this.BookToBought)
+  inShoppingCart: BehaviorSubject<number> = new BehaviorSubject(0);
   clearTabBook: BehaviorSubject<boolean> = new BehaviorSubject(false)
   private _bookUrl = 'http://localhost:8080/api/book/'
   constructor(private _httpClient : HttpClient) { }
@@ -41,6 +42,10 @@ export class BookService {
     this.BookToBought.push(book)
     console.log('Dans le book service : ', this.BookToBought);
     
+  }
+  
+  addToBookList(tab: Book[]){
+    this.bookList.next(tab)
   }
 }
 
