@@ -9,6 +9,7 @@ import { Book, BookArray, BookResult, finalDataBook } from '../models/book';
 export class BookService {
   numToAdd!: number
   BookToBought: Book[] = []
+  bList  = new Subject<Book[]>()
   bookList: BehaviorSubject<Book[]> = new BehaviorSubject<Book[]>(this.BookToBought)
   inShoppingCart: BehaviorSubject<number> = new BehaviorSubject(0);
   clearTabBook: BehaviorSubject<boolean> = new BehaviorSubject(false)
@@ -46,6 +47,9 @@ export class BookService {
   
   addToBookList(tab: Book[]){
     this.bookList.next(tab)
+    this.bList.next(tab)
+    console.log('lBook du subject simple', tab);
+    
   }
 }
 
