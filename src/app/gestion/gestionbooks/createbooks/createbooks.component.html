@@ -11,29 +11,40 @@
       <input type="number" id="price" formControlName="price" />
     </div>
             <h3>Authors : </h3>
-    <ul>
+
+          <label for="authors">Authors</label>
+          <select name="authors" formControlName="authors" multiple>
+            <option *ngFor="let author of myAuthorsList" value="{id : {{author.id}}}"> {{ author.surname }} </option>
+          </select>
+    <!-- <ul>
       <li *ngFor="let author of myAuthorsList">
         <a (click)="addA(author.id)">{{ author.surname }} </a>
         <button type="submit" (click)="DeleteA(author.id)">X</button>
       </li>
-    </ul>
+    </ul> -->
 
             <h3>Categories</h3>
-    <ul>
+            <label for="authors">Categories</label>
+            <select name="categories" formControlName="categories" multiple>
+              <option *ngFor="let cate of categorieList" [value]="cate.id"> {{ cate.name }} </option>
+            </select>
+
+    <!-- <ul>
         <li *ngFor="let cate of categorieList"><a 
             (click)="addC(cate.id)">
             {{cate.name}}
         </a>
         <button type="submit" (click)="DeleteC(cate.id)">X</button>
         </li>
-    </ul>
+    </ul> -->
 
-    <button type="submit" (click)="sendData()">Add book</button>
+    <button type="submit">Add book</button>
   </form>
 </section>
 
 <h2>↓↓↓ FORMULAIRE JUSTE AVEC LE TITRE ET LE PRIX ↓↓↓</h2>
 {{ newBook.value | json }}
+
 <br />
 <h2>↓↓↓ LE SELECT AVEC LES AUTEURS DEJA EN DB ↓↓↓</h2>
 {{ authorsTab | json }}

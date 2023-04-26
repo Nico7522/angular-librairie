@@ -43,6 +43,8 @@ export class CreatebooksComponent implements OnInit {
       title: [null, Validators.required],
       price: [null, Validators.required],
       // authors: [null, Validators.required]
+      authors:['id'],
+      categories:[[]],
     });
   }
 
@@ -62,7 +64,8 @@ export class CreatebooksComponent implements OnInit {
       title: this.newBook.get('title')?.value,
       price: this.newBook.get('price')?.value,
       authors: this.authorsTab,
-      categories: this.cateTab
+      categories: this.cateTab,
+      
     };
   }
 
@@ -89,7 +92,7 @@ export class CreatebooksComponent implements OnInit {
 
   createBook() {
     if (this.newBook.valid) {
-      this._bookService.create(this.finalData).subscribe({
+      this._bookService.create(this.newBook.value).subscribe({
         next: (res) => {
         },
 
