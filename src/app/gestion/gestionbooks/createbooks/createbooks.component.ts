@@ -31,28 +31,30 @@ export class CreatebooksComponent implements OnInit {
   myAuthorsList: any[] = [];
   categorieList: Categorie[] = []
   cateTab: any[] = []
-
+  addA(id: number): void {
+    this.authorsTab.push({
+      "id": id,
+    });
+  }
+  
   constructor(
     private _fb: FormBuilder,
     private _bookService: BookService,
     private _authorService: AuthorService,
     private _categorieService: CategorieService,
     private _router: Router
-  ) {
-    this.newBook = this._fb.group({
-      title: [null, Validators.required],
-      price: [null, Validators.required],
-      // authors: [null, Validators.required]
-      authors:['id'],
-      categories:[[]],
-    });
-  }
-
-  addA(id: number): void {
-    this.authorsTab.push({
-      id,
-    });
-  }
+    ) {
+      this.newBook = this._fb.group({
+        title: [null, Validators.required],
+        price: [null, Validators.required],
+        // authors: [null, Validators.required]
+        authors: [] ,
+        categories:[[]],
+      });
+    }
+    
+  
+ 
 
   addC(id: number): void {
     this.cateTab.push(
@@ -91,6 +93,7 @@ export class CreatebooksComponent implements OnInit {
   }
 
   createBook() {
+    this.newBook.get('authors')?.setValue([{"id":this.newBook.get('authors')?.value[0] }])
     if (this.newBook.valid) {
       this._bookService.create(this.newBook.value).subscribe({
         next: (res) => {

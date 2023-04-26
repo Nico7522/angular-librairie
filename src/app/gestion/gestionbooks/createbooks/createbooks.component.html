@@ -14,7 +14,7 @@
 
           <label for="authors">Authors</label>
           <select name="authors" formControlName="authors" multiple>
-            <option *ngFor="let author of myAuthorsList" value="{id : {{author.id}}}"> {{ author.surname }} </option>
+            <option *ngFor="let author of myAuthorsList" [value]="author.id"> {{ author.surname }} </option>
           </select>
     <!-- <ul>
       <li *ngFor="let author of myAuthorsList">
